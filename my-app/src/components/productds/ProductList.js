@@ -5,11 +5,7 @@ import './ProductList.css'
 function ProductList(props) {
     return (
         <List>
-            <ProductItem
-                name={props.products[0].name}
-                price={props.products[0].price}
-                category={props.products[0].category}
-            ></ProductItem>
+            
             <ProductItem
                 name={props.products[1].name}
                 price={props.products[1].price}

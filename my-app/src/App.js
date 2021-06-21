@@ -1,4 +1,5 @@
 import "./App.css";
+import NewProduct from "./components/productds/NewProduct";
 import ProductList from "./components/productds/ProductList";
 
 function App() {
@@ -10,9 +11,15 @@ function App() {
         {name: "Smar Tivi Sony 50 Inch", category: "Smar Tivi", price: 700}
     ];
 
+    const addProductHandler = product => {
+        console.log("Process to add product");
+        console.log(product);
+    }
+
     return ( 
         <div className="App">
-            <h2> Getting start with React. </h2> 
+            <h2> Getting start with React. </h2>
+            <NewProduct onAddProduct={addProductHandler}></NewProduct> 
             <ProductList products={products}></ProductList>
         </div>
     );

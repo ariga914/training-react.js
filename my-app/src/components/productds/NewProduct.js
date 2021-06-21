@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import './NewProduct.css';
 
 const NewProduct = (props) => {
@@ -7,6 +7,7 @@ const NewProduct = (props) => {
     const [inputedPrice, setInputedPrice] = useState('');
     const [inputedCategory, setSelectedCategory] = useState('');
 
+    const  productNameElm = useRef(null);
     // Define handle functions for form events.
     const nameChangeHolder = (e) => {
         setInputedName(e.target.value);
@@ -34,6 +35,8 @@ const NewProduct = (props) => {
         setInputedName('');
         setInputedPrice('');
         setSelectedCategory('');
+
+        productNameElm.current.focus();
     }
 
     return (
@@ -42,7 +45,13 @@ const NewProduct = (props) => {
                 <div className="new-product_controls">
                     <div className="new-product_control">
                         <label>Name</label>
-                        <input onChange={nameChangeHolder} value={inputedName} type="text" placeholder="Product name"/>
+                        <input 
+                            onChange={nameChangeHolder} 
+                            value={inputedName} 
+                            type="text" 
+                            placeholder="Product name"
+                            ref={productNameElm}    
+                        />
                     </div>
                     <div className="new-product_control">
                         <label>Price</label>

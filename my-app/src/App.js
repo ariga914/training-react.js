@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import "./App.css";
 import NewProduct from "./components/productds/NewProduct";
 import ProductList from "./components/productds/ProductList";
@@ -23,11 +23,11 @@ function App() {
     };
 
     return ( 
-        <div className="App">
+        <Fragment>
             <h2> Getting start with React. </h2>
             <NewProduct onAddProduct={addProductHandler}></NewProduct> 
             <ProductList products={products}></ProductList>
-        </div>
+        </Fragment>
     );
 }
 

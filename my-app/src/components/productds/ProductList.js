@@ -3,29 +3,21 @@ import List from '../UI/List';
 import './ProductList.css'
 
 function ProductList(props) {
+    let listContent = <p>No Product</p>;
+
+    if (props.products.length !== 0) {
+        listContent = props.products.map( product => (
+            <ProductItem
+                key ={product.id}
+                name={product.name}
+                price={product.price}
+                category={product.category}
+            />
+        ))
+    }
     return (
         <List>
-            
-            <ProductItem
-                name={props.products[1].name}
-                price={props.products[1].price}
-                category={props.products[1].category}
-            ></ProductItem>
-            <ProductItem
-                name={props.products[2].name}
-                price={props.products[2].price}
-                category={props.products[2].category}
-            ></ProductItem>
-            <ProductItem
-                name={props.products[3].name}
-                price={props.products[3].price}
-                category={props.products[3].category}
-            ></ProductItem>
-            <ProductItem
-                name={props.products[4].name}
-                price={props.products[4].price}
-                category={props.products[4].category}
-            ></ProductItem>
+            {listContent}
         </List>
     );
 }

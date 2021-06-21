@@ -4,22 +4,26 @@ import './ProductItem.css';
 function ProductItem(props) {
     const price = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(props.price);
     const [name, setName] = useState(props.name);
-
+    const [itemClass, setItemClass] = useState('product-item');
 
     const titleClickHandler = () => {
         // setName assigns new value for state "name"
         setName(name + ' clicked');
     }
 
+    const itemClickHandler = () => {
+        setItemClass('product-item--active');
+    }
+
     return (
-        <div className="product-item">
+        <div className={itemClass} onClick={itemClickHandler}>
             <div>{props.category}</div>
             <div className="product-item__description">
                 <h3 onClick={titleClickHandler}>{name}</h3>
                 <div className="product-item__price">{price}</div>
             </div>
         </div>
-)
+    )
 }
 
 export default ProductItem;
